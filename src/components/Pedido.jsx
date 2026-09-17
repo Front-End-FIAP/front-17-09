@@ -62,7 +62,17 @@ const Pedido = () => {
 
     return (
         <div>
-
+            <h1>Cardapio do Restaurante</h1>
+            {produtosDisponiveis.map(produto => (
+                <div key={produto.id}>
+                    <span>{produto.nome} - R$ {produto.preco.toFixed(2)}</span>
+                    <div>
+                        <button onClick={() => AlterarQuantidade(produto.id, -1)}>-</button>
+                        <span>{produto.quantidade}</span>
+                        <button onClick={() => AlterarQuantidade(produto.id, 1)}>+</button>
+                    </div>
+                </div>
+            ))}
         </div>
     )
 }
